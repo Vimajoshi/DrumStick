@@ -52,6 +52,7 @@ for (let i = 0; i < noOfDrumButtons; i++) {
       default:
         break;
     }
+    addAnimation(alphaBet);
   });
 }
 
@@ -104,4 +105,18 @@ document.addEventListener("keydown", function (event) {
     default:
       break;
   }
+
+  addAnimation(event.key);
 });
+
+// adding animation to buttons
+
+function addAnimation(currentKey) {
+
+  var activeKeyPressed = document.querySelector("." + currentKey);
+  activeKeyPressed.classList.add("pressed");
+
+  setTimeout(function () {
+    activeKeyPressed.classList.remove("pressed");
+  }, 100);
+}
